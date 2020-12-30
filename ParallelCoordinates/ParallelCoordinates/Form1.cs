@@ -72,6 +72,8 @@ namespace ParallelCoordinates
 
             this.chartControl.Titles.Add(this.chartControl.Title);
             this.chartControl.Legend.Visible = false;
+            this.chartControl.Skins = Skins.Metro;
+            this.chartControl.ChartAreaMargins = new ChartMargins(10, 10, 55, 10);
             this.Controls.Add(chartControl);
 
             this.AutoScaleDimensions = new SizeF(9F, 20F);

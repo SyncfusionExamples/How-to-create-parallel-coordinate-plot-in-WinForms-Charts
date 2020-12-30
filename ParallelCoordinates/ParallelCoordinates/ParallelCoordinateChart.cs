@@ -70,6 +70,7 @@ namespace ParallelCoordinates
         public ParallelCoordinateChart() : base()
         {
             this.PrimaryXAxis.ValueType = ChartValueType.Category;
+            this.PrimaryXAxis.Range = new MinMaxInfo(0, 4, 1);
             this.PrimaryXAxis.IsVisible = true;
             this.PrimaryXAxis.OpposedPosition = true;
             this.PrimaryXAxis.DrawGrid = false;
