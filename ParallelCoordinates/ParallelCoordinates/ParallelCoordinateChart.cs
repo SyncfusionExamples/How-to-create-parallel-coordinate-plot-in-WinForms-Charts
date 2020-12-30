@@ -11,6 +11,7 @@ namespace ParallelCoordinates
     {
         private BindingList<ChartModel> source;
 
+        //Gets or sets the DataSource for the ParallelCoordinateChart. 
         public BindingList<ChartModel> DataSource
         {
             get
@@ -26,6 +27,7 @@ namespace ParallelCoordinates
 
         private ChartSeriesType type = ChartSeriesType.Line;
 
+        //Gets or sets the ParallelCoordinateChart series type.
         public ChartSeriesType SeriesType
         {
             get
@@ -42,6 +44,7 @@ namespace ParallelCoordinates
 
         private List<CustomAxisModel> customAxisList;
 
+        //Gets or sets the list of axes for parallel coordinates.
         public List<CustomAxisModel> CustomAxisCollection
         {
             get
@@ -84,6 +87,7 @@ namespace ParallelCoordinates
             GenerateSeries();
         }
 
+        //Generate the series based on the DataSource, CustomAxisCollection and SeriesType.
         private void GenerateSeries()
         {
             if (DataSource != null && CustomAxisCollection != null && CustomAxisCollection.Count >= DataSource.Count)
