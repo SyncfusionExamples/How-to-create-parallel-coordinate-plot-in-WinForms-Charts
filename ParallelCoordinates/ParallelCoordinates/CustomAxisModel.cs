@@ -94,6 +94,7 @@ namespace ParallelCoordinates
                 CustomAxis.Range = PlotRange;
         }
 
+        //Generate the custom axis labels
         private void CustomAxis_FormatLabel(object sender, ChartFormatAxisLabelEventArgs e)
         {
             if (CustomAxisLabels != null && CustomAxisLabels.Count > e.Value)
