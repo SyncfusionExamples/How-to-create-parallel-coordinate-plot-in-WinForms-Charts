@@ -8,6 +8,8 @@ namespace ParallelCoordinates
     public class CustomAxisModel
     {
         private MinMaxInfo plotRanges;
+
+        //Gets or sets the range for the axis. 
         public MinMaxInfo PlotRange
         {
             get
@@ -20,22 +22,24 @@ namespace ParallelCoordinates
             }
         }
 
-        private int indexs = Int32.MaxValue;
+        private int crossingValue = Int32.MaxValue;
 
-        public int Index
+        //Gets or sets the axis crossing value to position the axis in parallel.
+        public int CrossingValue
         {
             get
             {
-                return indexs;
+                return crossingValue;
             }
             set
             {
-                indexs = value;
+                crossingValue = value;
             }
         }
 
         private List<string> customAxisLabel;
 
+        //Gets or sets the list of custom axis label values.
         public List<string> CustomAxisLabels
         {
             get
@@ -57,12 +61,13 @@ namespace ParallelCoordinates
         public CustomAxisModel(MinMaxInfo range, int AxisIndex, List<string> axisLabels, string name)
         {
             PlotRange = range;
-            Index = AxisIndex;
+            CrossingValue = AxisIndex;
             CustomAxisLabels = axisLabels;
             AxisName = name;
             GenerateCustomAxis();
         }
 
+        //Generate the axis parallel based on the axis CrossingValue, PlotRange.
         private void GenerateCustomAxis()
         {
             if (CustomAxis == null)
@@ -74,8 +79,8 @@ namespace ParallelCoordinates
                     Orientation = ChartOrientation.Vertical
                 };
 
-            if (Index != Int32.MaxValue)
-                CustomAxis.Crossing = Index;
+            if (CrossingValue != Int32.MaxValue)
+                CustomAxis.Crossing = CrossingValue;
 
             if (CustomAxisLabels != null && CustomAxisLabels.Count > 0)
             {
@@ -89,6 +94,7 @@ namespace ParallelCoordinates
                 CustomAxis.Range = PlotRange;
         }
 
+        //Generate the custom axis labels
         private void CustomAxis_FormatLabel(object sender, ChartFormatAxisLabelEventArgs e)
         {
             if (CustomAxisLabels != null && CustomAxisLabels.Count > e.Value)
